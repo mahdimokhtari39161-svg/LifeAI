@@ -21,6 +21,14 @@ jobs:
     steps:
       - name: Check out source
         uses: actions/checkout@v4
+      - name: Validate LifeAI web source
+        run: |
+          node --check app-core.js
+          node --check app-ui.js
+          node --check app-actions.js
+          node --check backend/server.js
+          python3 -m json.tool manifest.webmanifest >/dev/null
+          python3 -m json.tool backend/package.json >/dev/null
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
