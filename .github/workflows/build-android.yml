@@ -1,0 +1,51 @@
+name: Build LifeAI Android APK
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'android/**'
+      - 'index.html'
+      - 'styles.css'
+      - 'app-core.js'
+      - 'app-ui.js'
+      - 'app-actions.js'
+      - 'manifest.webmanifest'
+      - 'assets/**'
+      - '.github/workflows/build-android.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+      - name: Install Android SDK components
+        run: |
+          yes | sdkmanager --licenses >/dev/null
+          sdkmanager "platforms;android-35" "build-tools;35.0.0"
+      - name: Copy web app into Android assets
+        run: |
+          mkdir -p android/app/src/main/assets/www/assets
+          cp index.html styles.css app-core.js app-ui.js app-actions.js manifest.webmanifest sw.js android/app/src/main/assets/www/
+          cp assets/icon.svg android/app/src/main/assets/www/assets/
+      - name: Build debug APK
+        run: gradle --no-daemon -p android assembleDebug
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: LifeAI-Android-debug
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
