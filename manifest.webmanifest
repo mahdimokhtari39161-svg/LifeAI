@@ -1,6 +1,6 @@
 {
   "id": "./",
-  "name": "LifeAI — Your Intelligent Life Assistant",
+  "name": "LifeAI — Your Everyday Life Companion",
   "short_name": "LifeAI",
   "description": "A multilingual everyday assistant for tasks, notes, personal finance and AI tools.",
   "lang": "fa",
@@ -8,8 +8,8 @@
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#0b1020",
-  "theme_color": "#101522",
+  "background_color": "#fff8f4",
+  "theme_color": "#fff3eb",
   "orientation": "portrait-primary",
   "icons": [{"src":"assets/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
 }
