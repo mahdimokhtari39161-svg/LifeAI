@@ -1,0 +1,15 @@
+{
+  "id": "./",
+  "name": "LifeAI — Your Intelligent Life Assistant",
+  "short_name": "LifeAI",
+  "description": "A multilingual everyday assistant for tasks, notes, personal finance and AI tools.",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b1020",
+  "theme_color": "#101522",
+  "orientation": "portrait-primary",
+  "icons": [{"src":"assets/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
