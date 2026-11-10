@@ -1,124 +1,87 @@
-# LifeAI — Your Intelligent Life Assistant
+# LifeAI — دستیار هوشمند زندگی
 
-LifeAI is a mobile-first Progressive Web App (PWA) designed for Android and the web. This first release is a usable foundation with local-first everyday tools and a separate, secure server gateway for online AI features.
+LifeAI یک برنامه وب واکنش‌گرا و نصب‌پذیر (PWA) برای استفاده در رایانه و Android است. این نسخه، پایه اجرایی برنامه را با ابزارهای روزمره و اتصال اختیاری به سرویس هوش مصنوعی فراهم می‌کند.
 
-## Included in release 1.0.0
+## امکانات نسخه فعلی
 
-### Working on the device (offline after the first successful load)
-- Responsive dashboard and bottom navigation
-- Persian, English, and Arabic interface with RTL/LTR switching
-- Tasks with completion and filters
-- Notes with local create/delete
-- Income and expense tracking with multiple currencies
-- Daily habit tracker
-- Calculator, unit converter, and percentage calculator
-- Document image capture/upload, local IndexedDB storage, and browser Print → Save as PDF
-- Dark/light theme
-- JSON export and restore for tasks, notes, finance, habits, preferences, and activity
-- PWA manifest, app icons, and service worker app-shell caching
+- رابط فارسی، انگلیسی و عربی با پشتیبانی از راست‌به‌چپ و چپ‌به‌راست
+- ثبت، تکمیل و حذف کارها
+- یادداشت‌های شخصی
+- ثبت درآمد و هزینه با برچسب واحد پول
+- فهرست عادت‌های روزانه
+- ماشین‌حساب و تبدیل واحد طول، وزن و دما
+- انتخاب تصویر سند و پیش‌نمایش آن؛ امکان چاپ صفحه و ذخیره PDF از طریق مرورگر
+- پشتیبان‌گیری و بازیابی اطلاعات اصلی برنامه با فایل JSON
+- پوسته روشن و تیره
+- ذخیره محلی اطلاعات و حافظه نهان فایل‌های اصلی برنامه برای بازدیدهای بعدی و استفاده محدود آفلاین
+- دستیار هوش مصنوعی با حالت‌های عمومی، ترجمه، نگارش، آموزش و برنامه‌ریزی از طریق سرور جداگانه
 
-### Online AI foundation
-- AI assistant modes for general help, translation, writing, learning, and planning
-- A Node.js API service that calls the OpenAI Responses API on the server
-- The browser stores only the backend URL. The OpenAI API key remains in the server environment.
+## محدودیت‌های مهم این نسخه
 
-## What is not enabled yet
+- ابزار اسناد فعلاً تصویر را انتخاب و پیش‌نمایش می‌کند. OCR، برش خودکار، تشخیص متن و ساخت PDF قابل جست‌وجو هنوز پیاده‌سازی نشده‌اند.
+- اتصال هوش مصنوعی تا زمانی که سرور جداگانه مستقر و کلید API روی همان سرور تنظیم نشود، فعال نخواهد بود.
+- همگام‌سازی ابری، حساب کاربری، تقویم، ایمیل، پیام‌رسانی، پرداخت و یادآورهای پوش فعال نیستند.
+- اطلاعات در مرورگر همان دستگاه ذخیره می‌شود و خودکار بین تلفن و رایانه همگام نمی‌شود.
+- این نسخه برای Android به‌صورت PWA از Chrome نصب می‌شود؛ فایل APK بومی و امضاشده هنوز ساخته نشده است.
 
-- AI requires deployment of `backend/` and a valid server-side `OPENAI_API_KEY`.
-- The scanner currently captures and stores document images; OCR text extraction and automatic perspective correction are not implemented in this first release.
-- Calendar, email, messaging, cloud sync, user accounts, payments, and automatic reminders are not connected yet.
-- Offline data is stored separately in each browser/device. It is not synchronized. The JSON backup currently covers the app's localStorage records; saved document images in IndexedDB are not included.
-- Android installation is provided as an installable PWA through Chrome. A signed standalone APK and Play Store release are later packaging/release steps.
+## انتشار وب در GitHub Pages
 
-## Publish the web app with GitHub Pages
+فایل گردش‌کار انتشار خودکار در مسیر `.github/workflows/deploy-pages.yml` قرار دارد.
 
-1. Create a **new public repository** named `LifeAI` under your GitHub account.
-2. Upload the contents of this folder to the repository root. Do not upload the enclosing `lifeai-release` folder as a nested directory.
-3. Commit to the `main` branch.
-4. Open **Settings → Pages**.
-5. Under **Build and deployment**, select **Deploy from a branch**.
-6. Select `main` and `/(root)`, then Save.
-7. After the Pages deployment finishes, the site will be available at:
-   `https://YOUR_GITHUB_USERNAME.github.io/LifeAI/`
+1. در مخزن GitHub به **Settings → Pages** بروید.
+2. در بخش **Build and deployment**، گزینه **GitHub Actions** را انتخاب کنید.
+3. به بخش **Actions** بروید و منتظر تکمیل گردش‌کار `Deploy LifeAI to GitHub Pages` بمانید.
 
-The `index.html`, `styles.css`, `app.js`, `manifest.webmanifest`, and `sw.js` files must remain at the repository root. GitHub Pages serves the frontend over HTTPS, which is required for service workers and PWA installation.
+نشانی سایت پس از انتشار:
 
-## Install on Android
+`https://mahdimokhtari39161-svg.github.io/LifeAI/`
 
-1. Open the published HTTPS address in Chrome on Android.
-2. Open Chrome's menu and choose **Install app** or **Add to Home screen**.
-3. Confirm the installation. LifeAI will appear in the app launcher and open in standalone mode.
+## نصب روی Android
 
-On iPhone, open the address in Safari, tap Share, and choose Add to Home Screen.
+پس از انتشار موفق سایت، نشانی بالا را با Chrome گوشی باز کنید. از منوی Chrome گزینه **Install app** یا **Add to Home screen** را انتخاب کنید. این کار نسخه نصب‌پذیر وب را روی گوشی اضافه می‌کند و APK مستقل نیست.
 
-## Deploy the AI backend
+## راه‌اندازی سرور هوش مصنوعی
 
-The frontend and backend are intentionally separate. GitHub Pages hosts the static PWA; it does not run Node.js API routes.
+GitHub Pages فقط فایل‌های وب را میزبانی می‌کند و اجرای Node.js را انجام نمی‌دهد. برای فعال‌کردن دستیار هوش مصنوعی:
 
-1. Deploy the `backend` directory to a Node.js host that supports Node 20 or newer.
-2. Set these environment variables in the host dashboard:
-   - `OPENAI_API_KEY`: your private OpenAI API key
-   - `OPENAI_MODEL`: a model available to your API project
-   - `APP_ORIGIN`: your exact frontend origin, for example `https://YOUR_GITHUB_USERNAME.github.io`
-   - `PORT`: usually supplied by the hosting provider
-3. The start command is `npm start`.
-4. Check `https://YOUR_BACKEND_HOST/health`. It should return `{ "ok": true, ... }`.
-5. In LifeAI open **Settings → AI server connection** and enter the backend origin only, for example `https://your-lifeai-api.example.com` (do not append `/api/ai`). Save.
-6. Open the AI Assistant and test a short request.
+1. پوشه `backend/` را روی یک میزبان Node.js نسخه 20 یا بالاتر مستقر کنید.
+2. متغیرهای محیطی سرور را تنظیم کنید:
+   - `OPENAI_API_KEY`: کلید خصوصی API که فقط باید در تنظیمات امن سرور قرار گیرد.
+   - `OPENAI_MODEL`: شناسه مدلی که در پروژه API شما فعال است؛ پیش‌فرض نمونه `gpt-6-luna` است.
+   - `APP_ORIGIN`: مبدأ دقیق سایت، مانند `https://mahdimokhtari39161-svg.github.io`.
+   - `PORT`: در صورت نیاز میزبان مقدار آن را تعیین می‌کند؛ مقدار پیش‌فرض 8787 است.
+3. دستور اجرا: `npm start`
+4. مسیر `/health` را بررسی کنید تا وضعیت سرویس نمایش داده شود.
+5. در LifeAI به **ابزارها → تنظیمات** بروید و آدرس اصلی سرور را وارد کنید؛ `/api/ai` را به انتهای آدرس اضافه نکنید.
 
-Do not put the API key in `app.js`, HTML, a GitHub Pages secret used by the browser, or any public repository file. The key belongs only in the server's environment variables.
+**کلید API را هرگز در فایل‌های HTML یا JavaScript، مخزن GitHub یا کد سمت مرورگر قرار ندهید.** فایل `.env` نیز نباید در Git بارگذاری شود؛ `.gitignore` آن را مستثنا کرده است.
 
-### Run the backend locally
+### اجرای محلی سرور
 
 ```bash
 cd backend
-npm install
 cp .env.example .env
-# Edit .env and add your server-side OPENAI_API_KEY and APP_ORIGIN
+# کلید واقعی و APP_ORIGIN دقیق را فقط در فایل محلی .env تنظیم کنید
 npm start
 ```
 
-For local frontend testing, serve the project root over HTTP (not by opening `index.html` as a `file://` URL). For example:
+برای آزمایش رابط وب، پوشه اصلی را با یک وب‌سرور محلی اجرا کنید؛ فایل `index.html` را مستقیماً با نشانی `file://` باز نکنید.
 
-```bash
-npx serve .
-```
-
-Then set `APP_ORIGIN` to the exact local frontend origin shown by the server and enter `http://localhost:8787` as the AI endpoint in LifeAI Settings.
-
-## Privacy and security notes
-
-- LifeAI's first-release tasks, notes, finance, habits, and preferences are saved in the current browser's local storage.
-- Saved document images are stored locally in IndexedDB.
-- Do not store passwords, payment card details, or highly sensitive identity/medical documents in this prototype.
-- Keep `.env` out of Git. `.gitignore` already excludes it.
-- The API gateway applies basic request rate limiting and an origin allowlist. Production deployments should add user authentication, per-user quotas, monitoring, and stronger abuse controls before a public launch.
-
-## Roadmap
-
-1. OCR and automatic document cropping
-2. Secure user accounts and encrypted cloud sync
-3. Calendar, email, and reminder integrations with explicit permissions
-4. Native Android packaging and accessibility improvements
-5. Subscription and billing infrastructure after product validation
-
-## Project structure
+## ساختار پروژه
 
 ```text
 LifeAI/
-├── assets/
-│   ├── icon-192.png
-│   └── icon-512.png
+├── .github/workflows/deploy-pages.yml
+├── assets/icon.svg
 ├── backend/
 │   ├── .env.example
 │   ├── package.json
 │   └── server.js
-├── .gitignore
-├── .nojekyll
-├── app.js
+├── app-core.js
+├── app-ui.js
+├── app-actions.js
 ├── index.html
 ├── manifest.webmanifest
-├── README.md
 ├── styles.css
 └── sw.js
 ```
