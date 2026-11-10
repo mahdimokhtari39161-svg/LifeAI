@@ -1,24 +1,14 @@
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#101522"><meta name="description" content="LifeAI — دستیار هوشمند زندگی روزمره">
-  <title>LifeAI | دستیار هوشمند زندگی</title>
-  <link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="assets/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#fff3eb"><meta name="description" content="LifeAI — همراه رنگی و هوشمند زندگی روزمره"><title>LifeAI | همراه هر روزت</title>
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="assets/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <div class="app-shell">
-    <header class="topbar"><a class="brand" href="#home"><span class="brand-mark">✦</span><span><b>LifeAI</b><small data-i18n="tagline">دستیار هوشمند زندگی</small></span></a><div class="top-actions"><span class="offline"><i></i><span data-i18n="ready">آماده</span></span><button class="icon-btn" id="themeBtn" aria-label="Theme">◐</button></div></header>
-    <main id="view" aria-live="polite"></main>
-    <nav class="bottom-nav" id="nav">
-      <button data-tab="home" class="active"><span>⌂</span><small data-i18n="home">خانه</small></button>
-      <button data-tab="tasks"><span>✓</span><small data-i18n="tasks">کارها</small></button>
-      <button data-tab="notes"><span>▤</span><small data-i18n="notes">یادداشت</small></button>
-      <button data-tab="money"><span>◈</span><small data-i18n="money">مالی</small></button>
-      <button data-tab="tools"><span>⌘</span><small data-i18n="tools">ابزارها</small></button>
-      <button data-tab="assistant" class="ai-nav"><span>✦</span><small data-i18n="ai">هوش مصنوعی</small></button>
-    </nav>
-  </div>
-  <script src="app-core.js" defer></script><script src="app-ui.js" defer></script><script src="app-actions.js" defer></script>
-</body>
-</html>
+<body class="theme-colorful">
+<div class="app-shell">
+<header class="topbar"><a class="brand" href="#home"><span class="brand-mark">✦</span><span><b>LifeAI</b><small>YOUR HAPPY LIFE COMPANION</small></span></a><div class="topbar-center"><span class="page-kicker" id="pageTitle">خانه</span></div><div class="topbar-actions"><div class="search-wrap"><span>⌕</span><input id="globalSearch" placeholder="جست‌وجوی سریع و زدن Enter..."></div><span class="online-pill"><i></i> <span>آماده</span></span><button class="icon-btn" id="themeBtn" aria-label="Change theme">☼</button><div class="profile-chip"><span>👋</span><b id="profileName">LifeAI</b></div></div></header>
+<div class="main-layout"><aside class="sidebar"><div class="sidebar-label">فضای شخصی</div><nav id="sideNav"></nav><div class="sidebar-bottom"><div class="sidebar-tip"><span>🌈</span><b>روزت را رنگی کن</b><small>هر روز یک قدم کوچک به جلو</small></div><div class="sidebar-version">LifeAI · Version 2.0</div></div></aside><main id="view" aria-live="polite"></main></div>
+<nav id="bottomNav" class="bottom-nav" aria-label="Main navigation"></nav>
+</div><div id="toast" class="toast" role="status"></div>
+<script src="app-core.js" defer></script><script src="app-ui.js" defer></script><script src="app-actions.js" defer></script>
+</body></html>
